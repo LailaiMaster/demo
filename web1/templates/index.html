@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% csrf_token %}
+<form action="{% url 'index' %}" method="post">
+    <input type="submit"/>
+</form>
+
+{% if dicts %}
+{#    {% for item in dicts.c5 %}#}
+{#        {% for v in item %}#}
+{#            <table border="1" cellpadding="10">#}
+{#            <caption>{{ v.0.name }}</caption>#}
+{#            <tr>#}
+{#                <td>{{ key }}</td>#}
+{#                {% for i in v %}#}
+{#                    <td>{{ i.price }}</td>#}
+{#                {% endfor %}#}
+{#                <td>#}
+{#            </tr>#}
+{#            </table>#}
+{#        {% endfor %}#}
+{#    {% endfor %}#}
+    {% for item in dicts.c5 %}
+        <table border="1" cellpadding="10">
+            <caption>{{ item.0.name }}</caption>
+            <tr>
+                <td>C5Game</td>
+                {% for i in item %}
+                    <td>{{ i.price }}</td>
+                {% endfor %}
+                <td>
+            </tr>
+        </table>
+    {% endfor %}
+
+    {% for item in dicts.igxe %}
+        <table border="1" cellpadding="10">
+            <caption>{{ item.0.name }}</caption>
+            <tr>
+                <td>igxe</td>
+                {% for i in item %}
+                    <td>{{ i.price }}</td>
+                {% endfor %}
+                <td>
+            </tr>
+        </table>
+    {% endfor %}
+{% endif %}
+</body>
+</html>
